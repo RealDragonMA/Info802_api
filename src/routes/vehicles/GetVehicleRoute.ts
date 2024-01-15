@@ -2,13 +2,15 @@ import AbstractRoute from "../AbstractRoute";
 import {FastifyReply, FastifyRequest} from "fastify";
 import Main from "../../Main";
 import {Client} from "@urql/core";
-import {vehicleListQuery} from "../../queries/GetVehiclesQuery";
+import {getVehicleDetailsQuery} from "../../queries/GetVehicleQuery";
 
-export default class GetVehiclesRoute extends AbstractRoute {
+export default class GetVehicleRoute extends AbstractRoute {
 
     run = async (req: FastifyRequest, reply: FastifyReply): Promise<any> => {
 
-        const options = <{ page?: number, size?: number, search?: string, filter?: any }>req.query;
+        const options = <{ id: string }>req.params;
+
+        console.log(options)
 
         const client: Client | undefined = Main.getChargeTrip().get();
         if (!client) {
@@ -18,9 +20,9 @@ export default class GetVehiclesRoute extends AbstractRoute {
             })
         }
 
-        const vehicles = await client.query(vehicleListQuery, options).toPromise();
+        const vehicle = await client.query(getVehicleDetailsQuery, {vehicleId: options.id}).toPromise();
 
-        return reply.code(200).send(vehicles.data.vehicleList)
+        return reply.code(200).send(vehicle.data)
 
     }
 

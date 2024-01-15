@@ -21,7 +21,7 @@ export default class WebServer {
 
     constructor(option: IWebServer) {
         this.port = option.port;
-        this.server = Fastify({ logger: true });
+        this.server = Fastify({logger: true});
         this.middlewares = option.middlewares ?? [];
     }
 

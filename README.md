@@ -20,5 +20,5 @@ Production Back : [???](???) <br>
 
 ## Technologies utilisées
 
--   <strong>TypeScript</strong>
--   <strong>Fastify</strong> : Fast and low overhead web framework, for Node.js
+- <strong>TypeScript</strong>
+- <strong>Fastify</strong> : Fast and low overhead web framework, for Node.js
