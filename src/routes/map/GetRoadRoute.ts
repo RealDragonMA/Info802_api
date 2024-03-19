@@ -8,6 +8,8 @@ export default class GetRoadRoute extends AbstractRoute {
 
         const {start, end} = <{ start: string, end: string }>req.query;
 
+        console.log(start, end);
+
         const _start = start.split(',')
         const _end = end.split(',')
 
@@ -19,7 +21,6 @@ export default class GetRoadRoute extends AbstractRoute {
             }
         })).data
 
-        console.log(response);
 
         const road: [number, number][] = response.features.flatMap((feature: any) => feature.geometry.coordinates);
         const distance: number = Math.ceil(response.features[0].properties.summary.distance / 1000);

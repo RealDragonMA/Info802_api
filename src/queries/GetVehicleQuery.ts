@@ -1,4 +1,4 @@
-const qql = require('graphql-tag');
+import qql from "graphql-tag";
 
 export const getVehicleDetailsQuery = qql`
 query vehicle($vehicleId: ID!) {

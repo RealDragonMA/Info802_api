@@ -1,4 +1,6 @@
 import {cacheExchange, Client, createClient, fetchExchange} from "@urql/core";
+import fetch from "cross-fetch";
+
 
 export default class ChargeTrip {
 
@@ -12,11 +14,12 @@ export default class ChargeTrip {
             fetchOptions: {
                 method: 'POST',
                 headers: {
-                    'x-client-id': '659fbb1c03f11572e9c6a30a',
-                    'x-app-id': '659fbb1c03f11572e9c6a30c',
+                    'x-client-id': process.env["x-client-id"]!,
+                    'x-app-id': process.env["x-app-id"]!
                 },
             },
-            exchanges: [cacheExchange, fetchExchange]
+            fetch: fetch,
+            exchanges: [cacheExchange, fetchExchange],
         })
 
     }

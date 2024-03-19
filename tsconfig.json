@@ -1,9 +1,9 @@
 {
   "compilerOptions": {
+    "baseUrl": "./",
     "module": "CommonJS",
     "outDir": "dist",
     "target": "ES6",
-    "declaration": true,
     "strict": true,
     "esModuleInterop": true,
     "moduleResolution": "Node",
@@ -16,17 +16,16 @@
       "typings/@types"
     ],
     "types": [
-      "node"
-    ]
+      "node",
+    ],
+    "sourceMap": false,
+    "allowJs": true,
+    "skipLibCheck": true
   },
   "include": [
     "src/**/*",
-    "package.json",
-    ".npmrc"
   ],
   "exclude": [
     "node_modules",
-    "src/interface",
-    "storage"
   ]
 }

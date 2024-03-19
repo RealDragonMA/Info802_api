@@ -10,8 +10,6 @@ export default class GetVehicleRoute extends AbstractRoute {
 
         const options = <{ id: string }>req.params;
 
-        console.log(options)
-
         const client: Client | undefined = Main.getChargeTrip().get();
         if (!client) {
             return reply.code(500).send({
@@ -21,6 +19,8 @@ export default class GetVehicleRoute extends AbstractRoute {
         }
 
         const vehicle = await client.query(getVehicleDetailsQuery, {vehicleId: options.id}).toPromise();
+
+        console.log(vehicle);
 
         return reply.code(200).send(vehicle.data)
 

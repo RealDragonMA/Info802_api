@@ -19,7 +19,7 @@ class Main {
         });
 
         this.webserver = new WebServer({
-            port: 80,
+            port: 3050,
             middlewares: [
                 {
                     import: import("@fastify/cors"),

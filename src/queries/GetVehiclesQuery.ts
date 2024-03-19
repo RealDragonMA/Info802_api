@@ -1,4 +1,4 @@
-const qql = require('graphql-tag');
+import qql from "graphql-tag";
 
 export const vehicleListQuery = qql`
 query vehicleList($page: Int, $size: Int, $search: String) {

@@ -20,6 +20,8 @@ export default class GetVehiclesRoute extends AbstractRoute {
 
         const vehicles = await client.query(vehicleListQuery, options).toPromise();
 
+        console.log(vehicles)
+
         return reply.code(200).send(vehicles.data.vehicleList)
 
     }
